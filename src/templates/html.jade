@@ -1,0 +1,16 @@
+block variables
+
+doctype html
+html(lang="en" dir="ltr")
+
+  head
+    include partials/head.jade
+    block head
+
+if className
+  body(class="#{className}")
+    include partials/body.jade
+
+else
+  body
+    include partials/body.jade

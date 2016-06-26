@@ -1,0 +1,113 @@
+// wolfhound logo font
+@font-face {
+    font-family: 'WMD Logo';
+    src: url('../font/wmd_logo-webfont.eot');
+    src: url('../font/wmd_logo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/wmd_logo-webfont.woff') format('woff'),
+         url('../font/wmd_logo-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// font families
+$header-font: 'Montserrat', sans-serif;
+// $header-font: 'Lato', sans-serif;
+$body-font: 'Lora', serif;
+
+// default font family declarations
+body{
+  font-family: $body-font;
+  font-size:1.3em;
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: $header-font;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  h4 {
+    font-size: 1.4em;
+  }
+  h5 {
+    font-size: 1.2em;
+  }
+  h6 {
+    font-size: 1.0em;
+  }
+}
+
+// font family classes
+.header-font{
+  font-family: $header-font;
+}
+
+.body-font {
+  font-family: $body-font;
+}
+
+// font sizes
+.super-huge{
+  font-size: 9em;
+}
+.huge{
+  font-size: 7em;
+}
+.real-big{
+  font-size: 4em;
+}
+.large{
+  font-size: 2em;
+}
+.medium{
+  font-size: 1.5em;
+}
+.normal{
+  font-size: 1em;
+}
+.small{
+  font-size: 0.8em;
+}
+
+// font transforms
+.uppercase{
+  text-transform: uppercase;
+}
+.lowercase{
+  text-transform: lowercase;
+}
+.titlecase{
+  text-transform: capitalize;
+}
+
+// font style
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-weight: italic;
+}
+
+// 3d drop shadow
+
+.drop-shadow-11px{
+  text-shadow:
+    1px 1px 1px darken( $softred, 5% ),
+    2px 2px 1px darken( $softred, 5% ),
+    3px 3px 1px darken( $softred, 5% ),
+    4px 4px 1px darken( $softred, 5% ),
+    5px 5px 1px darken( $softred, 5% ),
+    6px 6px 1px darken( $softred, 5% ),
+    7px 7px 1px darken( $softred, 5% ),
+    8px 8px 1px darken( $softred, 5% ),
+    9px 9px 1px darken( $softred, 5% ),
+    10px 10px 1px darken( $softred, 5% ),
+    11px 11px 1px darken( $softred, 5% )
+  ;
+}

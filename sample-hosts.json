@@ -1,0 +1,6 @@
+{
+    "dev": {
+      "remoteurl": "ftp.host.com",
+      "remotedir": "/path/to/website"
+    }
+}

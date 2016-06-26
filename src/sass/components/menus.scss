@@ -1,0 +1,94 @@
+// menus
+.main-menu{
+  font-family: $header-font;
+
+  .menu-button {
+    font-family: $header-font;
+    font-weight: bold;
+    font-size: 1em;
+    display: none;
+    color: $primaryForegroundColour;
+    text-decoration: none;
+    margin: $std-padding*2;
+    padding: $std-padding*2;
+    border:2px solid rgba($primaryForegroundColour, 1);
+    float: right;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+
+    @if $shadow {
+      box-shadow: 0px 0px 3px rgba($black, 0.5), 0px 0px 3px rgba($black, 0.5) inset;
+      text-shadow: 0px  0px 3px $black;
+    }
+
+
+    @include tablet {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  ul {
+    float: right;
+    position: relative;
+    z-index: 1;
+
+    li {
+      display: inline-block;
+      list-style-type: none;
+      text-align: right;
+
+      a{
+        display: inline-block;
+        padding: $std-padding*2;
+        color: $primaryForegroundColour;
+        font-weight: bold;
+        font-size: 1em;
+        text-decoration: none;
+        border:2px solid rgba($primaryForegroundColour, 0);
+        @include transition(all 0.2s linear);
+
+        @if $shadow {
+          text-shadow: 0px  0px 3px $black;
+        }
+
+        &:hover, &:focus {
+          border:2px solid rgba($primaryForegroundColour, 1);
+          @if $shadow {
+            box-shadow: 0px 0px 3px rgba($black, 0.5), 0px 0px 3px rgba($black, 0.5) inset;
+          }
+        }
+      }
+
+      @include tablet {
+        display:block;
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      display: none;
+      padding: $std-padding*2;
+      margin: 0;
+
+      &.show {
+        padding: 4em 0;
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 50%;
+        font-size: 2em;
+      }
+    }
+  }
+
+  @include tablet {
+    &.show{
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}

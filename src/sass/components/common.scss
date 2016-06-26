@@ -1,0 +1,43 @@
+// styling for common html tags
+
+p {
+  margin:1.5em 0;
+
+  a {
+    padding:0 1px 1px 1px;
+    border-bottom:1px solid rgba($primaryForegroundColour, 0.5);
+    text-decoration: none;
+    color: $primaryForegroundColour;
+    @include transition(all 0.2s linear);
+    &:hover, &:focus {
+      background: rgba($primaryForegroundColour, 0.5);
+      color:$secondaryForegrountColour;
+    }
+
+  }
+}
+
+pre {
+  background: $secondaryBackgroundColour;
+  padding: $std-padding*2;
+  font-family: monospace;
+  white-space: pre;
+}
+
+blockquote {
+  border-left: 2px solid $primaryForegroundColour;
+  font-size: 1.5em;
+  margin: 1.5em 0;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  &:before {
+    color: $primaryForegroundColour;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+  }
+  p {
+    display: inline;
+  }
+}

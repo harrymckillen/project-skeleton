@@ -1,0 +1,135 @@
+// site logo
+.header{
+  min-height: 70px;
+  z-index: 1;
+
+  .logo {
+    font-family: 'WMD Logo';
+    line-height: 1.2em;
+    @if $shadow {
+      text-shadow: 0px  0px 3px $black;
+    }
+    text-align: center;
+    font-size: 2.5em;
+    @include tablet {
+      z-index: 2;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.grow{
+  @include transition(all 0.2s linear);
+  &:hover {
+      transform: scale(1.2);
+  }
+}
+
+// vertical align text
+.v-align-outer {
+  height: 100%;
+  @include tablet {
+    min-height: 650px;
+  }
+  width: 100%;
+  display: table;
+  position: absolute;
+  top:0;
+
+  .v-align-inner {
+    height: 100%;
+    width: 100%;
+    display: table;
+
+    .v-align-text {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+
+// home page text
+.title-text {
+  span {
+    line-height: 0.80em;
+    font-size: 10vw;
+    text-rendering: optimizeLegibility;
+    font-family: $body-font;
+
+    @include tablet {
+      font-size: 16vw;
+    }
+
+    @if $shadow {
+      text-shadow: 0px 0px 3px $black;
+    }
+
+    &.mediadesign {
+      font-size: 8.5vw;
+      @include tablet {
+        font-size: 13vw;
+      }
+      display: block;
+      line-height: 1em;
+    }
+  }
+}
+
+
+.footer{
+  padding-bottom: 1em;
+  text-align: center;
+  &.anchor{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+  span {
+    font-family: 'WMD Logo';
+    font-size: 1.4em;
+  }
+  .copyright {
+    font-size: 0.6em;
+  }
+}
+
+.divider{
+  margin: 20px auto;
+  width: 15%;
+  @include transition(all 0.5s linear);
+  @include tablet {
+    width: 25%;
+  }
+  border-bottom: 2px solid $primaryForegroundColour;
+  height: 2px;
+  display: block;
+}
+
+.ghost-button{
+  border:2px solid $primaryForegroundColour;
+  text-decoration: none;
+  font-size: 1.3em;
+  color:$primaryForegroundColour;
+  padding: 0.5em 1em;
+  background: rgba($primaryForegroundColour, 0);
+  @include transition(all 0.5s linear);
+  &:hover, &:focus {
+    background: rgba($primaryForegroundColour, 0.2);
+  }
+}
+
+// opacity %'s
+$i: 10;
+@while $i < 100 {
+  .opacity-#{$i}{
+    @include opacity($i);
+  }
+  $i: $i + 10;
+}
