@@ -20,6 +20,7 @@ module.exports = function (grunt) {
     sass: {
       build: {
         options: {
+          implementation: 'sass',
           style: 'compressed',
           sourcemap: 'none'
         },
@@ -45,7 +46,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    jade: {
+    pug: {
       build: {
         options: {
           pretty: true
@@ -53,7 +54,7 @@ module.exports = function (grunt) {
         files: [
           {
             cwd: "src",
-            src: ["**/*.jade", "!templates/**/*.jade"],
+            src: ["**/*.pug", "!templates/**/*.pug"],
             dest: "build",
             expand: true,
             ext: ".html"
@@ -94,7 +95,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-ftp-push');
-  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-pug');
 
   // Registered Tasks
   grunt.registerTask('build',
@@ -102,7 +103,7 @@ module.exports = function (grunt) {
       'clean:build',
       'sass:build',
       'copy:build',
-      'jade:build'
+      'pug:build'
     ]);
   grunt.registerTask('wipe',
     [
