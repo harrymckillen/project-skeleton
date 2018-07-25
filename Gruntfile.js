@@ -8,21 +8,6 @@ module.exports = function (grunt) {
   // Configs
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    hosts: grunt.file.readJSON('hosts.json'),
-    ftp_push: {
-      dev: {
-        options: {
-          authKey: "dev",
-          host: '<%= hosts.dev.remoteurl %>',
-          dest: '<%= hosts.dev.remotedir %>',
-          port: 21,
-          debug: false
-        },
-        files: [
-          {expand: true,cwd: 'build',src: ['**/*']}
-        ]
-      }
-    },
     copy: {
       build: {
         files: [
@@ -101,7 +86,7 @@ module.exports = function (grunt) {
   });
 
   // Load NPM Tasks
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -132,8 +117,31 @@ module.exports = function (grunt) {
       'build',
       'watch'
     ]);
-  grunt.registerTask('ftp',
-    [
-      'ftp_push:dev'
+
+  // FTP transfer task
+  grunt.registerTask('deploy', 'A simple task that ftp\'s stuff.', function (){
+
+    var hosts = grunt.file.readJSON('hosts.json');
+    grunt.initConfig({
+      ftp_push: {
+        options: {
+          authKey: "dev",
+          host: hosts.dev.remoteurl,
+          dest: hosts.dev.remotedir,
+          port: 21,
+          debug: false
+        },
+        full: {
+          files: [
+            {expand: true, cwd: 'build', src: ['**/*', '.htaccess']}
+          ]
+        }
+      }
+    });
+
+    grunt.task.run([
+      'ftp_push:full'
     ]);
+
+  });
 };
