@@ -2,6 +2,8 @@
     white */
 /* global
   grunt */
+const sass = require('node-sass');
+
 module.exports = function (grunt) {
   'use script';
 
@@ -20,7 +22,7 @@ module.exports = function (grunt) {
     sass: {
       build: {
         options: {
-          implementation: 'sass',
+          implementation: sass,
           style: 'compressed',
           sourcemap: 'none'
         },
@@ -70,19 +72,6 @@ module.exports = function (grunt) {
     watch: {
       files: ['src/**/*'],
       tasks: ['build']
-    },
-    processhtml: {
-      build: {
-        options: {
-          process: true,
-          data: {
-            sitetitle: 'Wolfhound Media Design Demos'
-          }
-        },
-        files: [
-          {expand: true, cwd: 'build/', src: ['*.html'], dest: 'build/'}
-        ]
-      }
     }
   });
 
@@ -93,9 +82,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-ftp-push');
   grunt.loadNpmTasks('grunt-contrib-pug');
+
 
   // Registered Tasks
   grunt.registerTask('build',

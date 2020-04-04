@@ -32,8 +32,8 @@
     "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "~1.1.0",
     "grunt-ftp-push": "~1.2.1",
-    "grunt-processhtml": "^0.4.2",
-    "grunt-sass": "^3.0.1"
+    "grunt-sass": "^3.0.1",
+    "node-sass": "^4.13.1"
   },
   "homepage": "https://github.com/harrymckillen/project-skeleton",
   "dependencies": {
